@@ -22,6 +22,12 @@ export class MaterialsController {
     async findOne(@Param('id') id: string): Promise<Material> {
         return this.materialsService.findOne(id);
     }
+
+    @Get('/employee/:employee')
+    async findByEmployee(@Param('employee') employee: string): Promise<Material[]> {
+        return this.materialsService.findByEmployee(employee);
+    }
+
     @Post()
     async create(@Body() material: Material): Promise<Material> {
         return this.materialsService.create(material);

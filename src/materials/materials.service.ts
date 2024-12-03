@@ -26,6 +26,11 @@ export class MaterialsService {
         return this.materialModel.findByIdAndUpdate(id, material, {new: true}).exec();
     }
 
+    //Méthode de filtrage de matériels par employés
+    async findByEmployee(employee: string): Promise<Material[]> {
+        return this.materialModel.find({ employee }).exec();
+    }
+
     async remove(id: string): Promise<Material> {
         return this.materialModel.findByIdAndDelete(id).exec();
     }
